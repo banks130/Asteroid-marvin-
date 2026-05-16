@@ -1,572 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Asteroid Marvin – Meme Token on BSC</title>
-  <style>
-    :root {
-      --bg: #080810;
-      --card-bg: #12121c;
-      --fg: #e6e6e6;
-      --accent: #ff2d6f;
-      --text-muted: #999;
-      --border: rgba(255, 255, 255, 0.12);
-      --shadow: rgba(0, 0, 0, 0.4);
-      --radius: 12px;
-      --mono: "JetBrains Mono", monospace, sans-serif;
-      --font: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background: linear-gradient(135deg, var(--bg) 0%, #060612 60%);
-      color: var(--fg);
-      font-family: var(--font);
-      line-height: 1.6;
-      padding-bottom: 100px;
-    }
+🪨
+ASTEROID MARVIN
+STORY
+HOW TO BUY
+ROADMAP
+FAQ
+BUY →
 
-    header.hero {
-      padding: 120px 20px 90px;
-      text-align: center;
-      background: radial-gradient(ellipse at top, #0a0a18 0%, transparent 60%),
-                  radial-gradient(ellipse at bottom, #000000 0%, transparent 70%);
-      position: relative;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 45, 111, 0.06), transparent 60%);
-      pointer-events: none;
-    }
-    .hero-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-    .hero-logo .logo {
-      height: 80px;
-      border-radius: 16px;
-      box-shadow: 0 0 24px rgba(255, 45, 111, 0.4);
-    }
-    .token-icon {
-      font-size: 40px;
-      color: var(--accent);
-      text-shadow: 0 0 16px rgba(255, 45, 111, 0.5);
-    }
-    .hero h1 {
-      font-size: 3.8rem;
-      margin-bottom: 0.5em;
-      letter-spacing: -0.04em;
-      color: #fff;
-      text-shadow: 0 2px 12px var(--shadow);
-    }
-    .hero .tagline {
-      font-size: 1.4rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5em;
-      line-height: 1.4;
-    }
-    .hero .motto {
-      font-size: 1.15rem;
-      font-style: italic;
-      opacity: 0.9;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .hero-buttons a {
-      text-decoration: none;
-      padding: 14px 36px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 1.05rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
-    }
-    .btn-buy {
-      background: linear-gradient(135deg, #ff2d6f, #ff5a8f);
-      color: #000;
-      box-shadow: 0 0 24px rgba(255, 45, 111, 0.4);
-    }
-    .btn-telegram, .btn-x {
-      background: rgba(20, 20, 30, 0.8);
-      color: var(--fg);
-    }
-    .contract {
-      font-family: var(--mono);
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      margin-top: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 32px var(--shadow);
-      padding: 28px 32px;
-      margin-bottom: 16px;
-    }
-    h2 {
-      font-size: 2.1rem;
-      margin-bottom: 30px;
-      color: var(--accent);
-      text-shadow: 0 0 16px rgba(255, 45, 111, 0.3);
-    }
-    h3 {
-      font-size: 1.45rem;
-      margin: 26px 0 15px;
-      color: #fff;
-    }
-    p {
-      margin-bottom: 16px;
-      font-size: 1.08rem;
-      color: var(--fg);
-    }
-    .small {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-    ul {
-      margin-bottom: 16px;
-      padding-left: 24px;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-
-    .section-wide {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .section-wide .card {
-      text-align: left;
-    }
-
-    .price-stats .card, .buy-guide .card, .faq .card {
-      border-color: rgba(255, 45, 111, 0.2);
-      box-shadow: 0 14px 36px rgba(255, 45, 111, 0.15);
-    }
-
-    .whitepaper .card {
-      background: rgba(20, 20, 30, 0.9);
-    }
-    .whitepaper .coming-soon {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: var(--accent);
-    }
-
-    .community-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-    .community-buttons a {
-      text-decoration: none;
-      padding: 12px 28px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 1.02rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    }
-    .community-buttons .btn-telegram {
-      background: linear-gradient(135deg, #0088cc, #00b0f0);
-      color: #fff;
-    }
-    .community-buttons .btn-x {
-      background: linear-gradient(135deg, #1d9bf0, #36c8f5);
-      color: #fff;
-    }
-
-    .faq-list {
-      margin-top: 18px;
-    }
-    .faq-item {
-      margin-bottom: 28px;
-    }
-    .faq-question {
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-    .faq-answer {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.55;
-    }
-
-    code {
-      font-family: var(--mono);
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 6px;
-      padding: 2px 6px;
-      margin: 0 2px;
-      font-size: 0.95rem;
-      color: #fff;
-    }
-
-    footer.footer {
-      margin-top: 90px;
-      padding: 32px 20px 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      background: rgba(8, 8, 16, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    footer .footer-links {
-      margin-bottom: 14px;
-    }
-    footer .footer-links a {
-      color: var(--accent);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer .footer-links a:hover {
-      text-decoration: underline;
-    }
-    footer .footer-contract {
-      margin-bottom: 12px;
-    }
-    footer .disclaimer p {
-      line-height: 1.6;
-    }
-
-    @media (max-width: 500px) {
-      header.hero {
-        padding: 100px 20px 80px;
-      }
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-      .hero .btn-buy,
-      .community-buttons a {
-        width: 100%;
-        max-width: 270px;
-      }
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-logo">
-      <img src="/attachments/wUq7E7wYEmnZjFtSjWouG.jpeg" alt="Asteroid Marvin Logo" class="logo" />
-      <span class="token-icon">🪨</span>
-    </div>
-    <h1>ASTEROID MARVIN</h1>
-    <p class="tagline">
-      Launched on Four.meme.<br>
-      Traded by the community.
-    </p>
-    <p class="motto">“No roadmap. No promises. Just a meme.”</p>
-    <div class="hero-buttons">
-      <a href="https://pancakeswap.finance/swap?chain=bsc&chainOut=bsc&inputCurrency=BNB&outputCurrency=0x758B2F798458612D91105e633Bd1bc4793De4444&exactAmount=&exactField=OUTPUT" target="_blank" rel="noopener" class="btn-buy">Buy on PancakeSwap</a>
-      <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Telegram</a>
-      <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">X</a>
-    </div>
-    <div class="contract">
-      Contract: <span>0x758B2F798458612D91105e633Bd1bc4793De4444 (BSC)</span>
-    </div>
-  </header>
-
-  <div class="container">
-    <section class="project-narrative">
-      <div class="section-wide">
-        <div class="card">
-          <h2>What is Asteroid Marvin?</h2>
-          <p>
-            Asteroid Marvin is a meme token launched on Four.meme.
-          </p>
-          <p>
-            There was no presale.<br>
-            There was no private round.
-          </p>
-          <p>
-            It exists because people found it, traded it, and stayed.
-          </p>
-          <p>
-            Nothing more.<br>
-            Nothing hidden.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="token-overview">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Token Overview</h2>
-          <ul>
-            <li><strong>Network:</strong> Binance Smart Chain (BSC)</li>
-            <li><strong>Launch Platform:</strong> Four.meme</li>
-            <li><strong>Launch Type:</strong> Fair launch</li>
-            <li><strong>DEX:</strong> PancakeSwap</li>
-            <li><strong>Liquidity:</strong> Added at launch</li>
-            <li><strong>Trading:</strong> Open and unrestricted</li>
-          </ul>
-          <p class="small">
-            All information is verifiable on‑chain.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="price-stats">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Price & Stats</h2>
-          <p>
-            Asteroid Marvin lives entirely on‑chain and on DEXes.
-          </p>
-          <p>
-            Its price is set by the free market on PancakeSwap, with no artificial price floor or ceiling.
-          </p>
-          <p>
-            You can check the latest price and chart on BSC‑focused explorers and DEX aggregators.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="buy-guide">
-      <div class="section-wide">
-        <div class="card">
-          <h2>How to Buy Asteroid Marvin</h2>
-          <p>
-            Asteroid Marvin is purchased on PancakeSwap using BNB.
-          </p>
-
-          <h3>Step 1: Connect Your Wallet</h3>
-          <p>
-            Connect your Web3 wallet (MetaMask, Trust Wallet, etc.) to PancakeSwap and make sure you’re on the <strong>Binance Smart Chain (BSC)</strong> network.
-          </p>
-
-          <h3>Step 2: Open the Swap</h3>
-          <p>
-            Click the <strong>“Buy on PancakeSwap”</strong> button above or open this link:
-          </p>
-          <p class="contract">
-            <code>https://pancakeswap.finance/swap?chain=bsc&amp;chainOut=bsc&amp;inputCurrency=BNB&amp;outputCurrency=0x758B2F798458612D91105e633Bd1bc4793De4444</code>
-          </p>
-          <p>
-            Ensure the output token is set to <strong>Asteroid Marvin</strong> with contract:
-            <code>0x758B2F798458612D91105e633Bd1bc4793De4444</code>.
-          </p>
-
-          <h3>Step 3: Enter Amount & Swap</h3>
-          <p>
-            Input how much BNB you want to spend, then click <strong>Swap</strong>. Confirm the transaction in your wallet.
-          </p>
-          <p>
-            If you haven’t interacted with this token before, you may see an approval step; this is normal.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="trading-liquidity">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Trading & Liquidity</h2>
-          <p>
-            Asteroid Marvin trades freely on PancakeSwap.
-          </p>
-          <p>
-            Buys and sells function normally.<br>
-            No sell restrictions.<br>
-            No transfer limitations.
-          </p>
-          <p>
-            Market movement is determined entirely by traders.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="roadmap">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Roadmap</h2>
-          <p>
-            No fake milestones. No forced timelines. Just vibes and community direction.
-          </p>
-
-          <div class="phase">
-            <h3>Phase 1 — Launch</h3>
-            <ul>
-              <li>Deployed on Four.meme</li>
-              <li>Liquidity added</li>
-              <li>Trading enabled</li>
-              <li>Community channels opened</li>
-            </ul>
-          </div>
-
-          <div class="phase">
-            <h3>Phase 2 — Visibility</h3>
-            <ul>
-              <li>Organic discovery</li>
-              <li>Community growth</li>
-              <li>Branding refinement</li>
-            </ul>
-          </div>
-
-          <div class="phase">
-            <h3>Phase 3 — Community Direction</h3>
-            <ul>
-              <li>Open discussion</li>
-              <li>Optional experiments</li>
-              <li>No forced outcomes</li>
-            </ul>
-            <p>
-              No deadlines.<br>
-              No guarantees.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="whitepaper">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Whitepaper</h2>
-          <p class="coming-soon">Whitepaper — Coming Soon</p>
-          <p>
-            Documentation will outline:
-          </p>
-          <ul>
-            <li>Launch structure</li>
-            <li>Token behavior</li>
-            <li>Risk considerations</li>
-            <li>Community philosophy</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq">
-      <div class="section-wide">
-        <div class="card">
-          <h2>FAQs</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <div class="faq-question">Do you have a roadmap?</div>
-              <div class="faq-answer">
-                A small, honest one: launched, traded, community‑driven. No grand promises.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-question">Is there a presale?</div>
-              <div class="faq-answer">
-                No. Asteroid Marvin is a fair launch on Four.meme with no presale or private round.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-question">Is this a scam?</div>
-              <div class="faq-answer">
-                This is a meme token with no promises of utility or guaranteed value. Trading crypto is risky; never invest more than you’re prepared to lose.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-question">How can I trust this token?</div>
-              <div class="faq-answer">
-                You can verify the contract, liquidity, and transactions on BSC block explorers and on‑chain tools. Trust what you can see, not what you read.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="community-highlights">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Community Highlights</h2>
-          <p>
-            The real value of Asteroid Marvin lives in its community.
-          </p>
-          <p>
-            People share memes, trade freely, and help each other understand the risks without pretending it’s a “safe” investment.
-          </p>
-          <p>
-            The channels are open. You can watch, trade, discuss, or just observe.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="community">
-      <div class="section-wide">
-        <div class="card">
-          <h2>Join the Community</h2>
-          <p>
-            There is no team without the community.
-          </p>
-          <p>
-            Watch.<br>
-            Trade.<br>
-            Decide.
-          </p>
-          <div class="community-buttons">
-            <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Join Telegram</a>
-            <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">Follow on X</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener">Telegram</a> |
-      <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener">X</a>
-    </div>
-    <div class="footer-contract">
-      Contract: <span>0x758B2F798458612D91105e633Bd1bc4793De4444 (BSC)</span>
-    </div>
-    <div class="disclaimer">
-      <p>
-        Asteroid Marvin is a meme token with no guaranteed utility or value.<br>
-        Cryptocurrency trading is speculative and involves risk.<br>
-        Nothing on this website is financial advice.
-      </p>
-    </div>
-  </footer>
-</body>
-</html>
+LIVE ON PUMP.FUN · SOLANA
+ASTEROID MARVIN
+Launched on Pump.fun. Traded by the community.
+“No roadmap. No promises. Just a meme.”
+BUY ON RAYDIUM
+TELEGRAM
+X / TWITTER
+CA
+MarvinSoLanA1111111111111111111111111pumP
+COPY
+Just a rock. Out here vibing.
+SOL &x25E6;
+100x &x2726;
+WAGMI &x1F680;
+FAIR LAUNCH &x1FAA8;
+&x2726;
+ZERO PRESALE &x2726;
+&x2726;
+COMMUNITY OWNED &x1F91D;
+&x2726;
+NO ROADMAP &x2726;
+&x2726;
+JUST A MEME &x272B;
+&x2726;
+SOLANA NATIVE &x26D3;&xfe0f;
+&x2726;
+RAYDIUM + JUPITER &x1F680;
+&x2726;
+FAIR LAUNCH &x1FAA8;
+&x2726;
+ZERO PRESALE &x2726;
+&x2726;
+COMMUNITY OWNED &x1F91D;
+&x2726;
+NO ROADMAP &x2726;
+&x2726;
+JUST A MEME &x272B;
+&x2726;
+SOLANA NATIVE &x26D3;&xfe0f;
+&x2726;
+RAYDIUM + JUPITER &x1F680;
+&x2726;
+FAIR LAUNCH &x1FAA8;
+&x2726;
+ZERO PRESALE &x2726;
+&x2726;
+COMMUNITY OWNED &x1F91D;
+&x2726;
+NO ROADMAP &x2726;
+&x2726;
+JUST A MEME &x272B;
+&x2726;
+SOLANA NATIVE &x26D3;&xfe0f;
+&x2726;
+RAYDIUM + JUPITER &x1F680;
+&x2726;
+THE STORY
+WHAT IS ASTEROID MARVIN?
+Asteroid Marvin is a meme token launched on Pump.fun. There was no presale. There was no private round.
+It exists because people found it, traded it, and stayed. Nothing more. Nothing hidden.
+CERTIFIED ROCK BEHAVIOR
+THE MARVIN COMMANDMENTS
+&x1FAA8;
+FAIR LAUNCH
+No presale. No private round. Deployed straight on Pump.fun.
+&x26D3;&xfe0f;
+SOLANA NATIVE
+Fast finality. Microscopic fees. Raydium liquidity from day one.
+&x1F30C;
+NO ROADMAP
+No fake milestones. No forced timelines. Just vibes and chart.
+&x1F91D;
+COMMUNITY
+There's no team without the community. Holders run the show.
+&x1F513;
+UNRESTRICTED
+Open trading. No sell limits. No transfer locks. On-chain proof.
+&x272B;
+JUST A MEME
+It's a rock. With a face. On the blockchain. That's the pitch.
+STEP BY STEP
+HOW TO BUY
+01
+Get a Solana Wallet
+Install Phantom or Solflare. Fund it with some SOL from your exchange of choice.
+02
+Open Raydium or Jupiter
+Tap the Buy button. Make sure the output token is Asteroid Marvin's contract address.
+03
+Swap & Hold
+Choose how much SOL to spend, swap, and confirm in your wallet. Welcome to the rock.
+raydium.io → swap to Marvin
+jup.ag → swap to Marvin
+NO PROMISES
+THE ROADMAP
+PHASE 1
+Launch
+	•	› Deployed on Pump.fun › Liquidity migrated to Raydium › Trading enabled › Community channels opened
+PHASE 2
+Visibility
+	•	› Organic discovery › Community growth › Branding refinement › Listings on DEX trackers
+PHASE 3
+Community Direction
+	•	› Open discussion › Optional experiments › No forced outcomes › No deadlines. No guarantees.
+HONEST ANSWERS
+FAQ
+Do you have a roadmap?
++
+Is there a presale?
++
+Is this a scam?
++
+How can I trust this token?
++
+What's the contract address?
++
+JOIN THE ROCK.
+The channels are open. Watch, trade, post memes, or just observe.
+TELEGRAM
+X / TWITTER
+PUMP.FUN
+© Asteroid Marvin — a rock on Solana. Not financial advice. Do your own research.
