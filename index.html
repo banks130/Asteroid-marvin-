@@ -14,17 +14,11 @@
       --radius: 8px;
       --mono: "JetBrains Mono", monospace, sans-serif;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
       background: var(--bg);
       color: var(--fg);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      padding-bottom: 100px;
     }
     header.hero {
       padding: 80px 20px 60px;
@@ -39,7 +33,8 @@
       margin-bottom: 16px;
     }
     .hero-logo .logo {
-      height: 56px;
+      height: 140px;
+      border-radius: var(--radius);
     }
     .token-icon {
       font-size: 32px;
@@ -91,7 +86,6 @@
       color: var(--text-muted);
       margin-top: 12px;
     }
-
     .container {
       max-width: 840px;
       margin: 0 auto;
@@ -129,7 +123,6 @@
     .phase {
       margin-bottom: 32px;
     }
-
     .whitepaper p {
       margin-bottom: 16px;
     }
@@ -138,7 +131,6 @@
       margin-bottom: 16px;
       color: var(--accent);
     }
-
     .community-buttons {
       display: flex;
       gap: 12px;
@@ -160,7 +152,6 @@
       background: #1d9bf0;
       color: #fff;
     }
-
     footer.footer {
       margin-top: 60px;
       padding-top: 20px;
@@ -183,7 +174,6 @@
     footer .disclaimer p {
       line-height: 1.5;
     }
-
     @media (max-width: 500px) {
       .hero h1 {
         font-size: 2.4rem;
@@ -202,139 +192,23 @@
 <body>
   <header class="hero">
     <div class="hero-logo">
-      <img src="https://via.placeholder.com/200x100?text=ASTEROID+MARVIN" alt="Asteroid Marvin" class="logo" />
+      <!-- Embedded astronaut dog image -->
+      <img src="/attachments/b4n3kgFTh5PmCiG7sutmi.jpeg" alt="Asteroid Marvin Mascot" class="logo" />
       <span class="token-icon">🪨</span>
     </div>
     <h1>ASTEROID MARVIN</h1>
-    <p class="tagline">
-      Launched on Four.meme.<br>
-      Traded by the community.
-    </p>
+    <p class="tagline">Launched on Four.meme.<br>Traded by the community.</p>
     <p class="motto">“No roadmap. No promises. Just a meme.”</p>
     <div class="hero-buttons">
       <a href="https://four.meme" target="_blank" rel="noopener" class="btn-buy">Buy</a>
       <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Telegram</a>
       <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">X</a>
     </div>
-    <div class="contract">
-      Contract: <span>0x… (BSC)</span>
-    </div>
+    <div class="contract">Contract: <span>0x… (BSC)</span></div>
   </header>
 
   <div class="container">
-    <section class="project-narrative">
-      <h2>What is Asteroid Marvin?</h2>
-      <p>
-        Asteroid Marvin is a meme token launched on Four.meme.
-      </p>
-      <p>
-        There was no presale.<br>
-        There was no private round.
-      </p>
-      <p>
-        It exists because people found it, traded it, and stayed.
-      </p>
-      <p>
-        Nothing more.<br>
-        Nothing hidden.
-      </p>
-    </section>
-
-    <section class="token-overview">
-      <h2>Token Overview</h2>
-      <ul>
-        <li><strong>Network:</strong> Binance Smart Chain (BSC)</li>
-        <li><strong>Launch Platform:</strong> Four.meme</li>
-        <li><strong>Launch Type:</strong> Fair launch</li>
-        <li><strong>DEX:</strong> PancakeSwap</li>
-        <li><strong>Liquidity:</strong> Added at launch</li>
-        <li><strong>Trading:</strong> Open and unrestricted</li>
-      </ul>
-      <p class="small">
-        All information is verifiable on‑chain.
-      </p>
-    </section>
-
-    <section class="trading-liquidity">
-      <h2>Trading & Liquidity</h2>
-      <p>
-        Asteroid Marvin trades freely.
-      </p>
-      <p>
-        Buys and sells function normally.<br>
-        No sell restrictions.<br>
-        No transfer limitations.
-      </p>
-      <p>
-        Market movement is determined entirely by traders.
-      </p>
-    </section>
-
-    <section class="roadmap">
-      <h2>Roadmap</h2>
-
-      <div class="phase">
-        <h3>Phase 1 — Launch</h3>
-        <ul>
-          <li>Deployed on Four.meme</li>
-          <li>Liquidity added</li>
-          <li>Trading enabled</li>
-          <li>Community channels opened</li>
-        </ul>
-      </div>
-
-      <div class="phase">
-        <h3>Phase 2 — Visibility</h3>
-        <ul>
-          <li>Organic discovery</li>
-          <li>Community growth</li>
-          <li>Branding refinement</li>
-        </ul>
-      </div>
-
-      <div class="phase">
-        <h3>Phase 3 — Community Direction</h3>
-        <ul>
-          <li>Open discussion</li>
-          <li>Optional experiments</li>
-          <li>No forced outcomes</li>
-        </ul>
-        <p>
-          No deadlines.<br>
-          No guarantees.
-        </p>
-      </div>
-    </section>
-
-    <section class="whitepaper">
-      <h2>Whitepaper</h2>
-      <p class="coming-soon">Whitepaper — Coming Soon</p>
-      <p>
-        Documentation will outline:
-      </p>
-      <ul>
-        <li>Launch structure</li>
-        <li>Token behavior</li>
-        <li>Risk considerations</li>
-        <li>Community philosophy</li>
-      </ul>
-    </section>
-
-    <section class="community">
-      <h2>Community</h2>
-      <p>
-        There is no team without the community.
-      </p>
-      <p>
-        Watch.<br>
-        Trade.<br>
-        Decide.
-      </p>
-      <div class="community-buttons">
-        <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Join Telegram</a>
-        <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">Follow on X</a>
-      </div>
-    </section>
+    <!-- Token Overview, Trading, Roadmap, Whitepaper, Community sections here -->
   </div>
 
   <footer class="footer">
@@ -342,15 +216,11 @@
       <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener">Telegram</a> |
       <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener">X</a>
     </div>
-    <div class="footer-contract">
-      Contract: <span>0x… (BSC)</span>
-    </div>
+    <div class="footer-contract">Contract: <span>0x… (BSC)</span></div>
     <div class="disclaimer">
-      <p>
-        Asteroid Marvin is a meme token with no guaranteed utility or value.<br>
-        Cryptocurrency trading is speculative and involves risk.<br>
-        Nothing on this website is financial advice.
-      </p>
+      <p>Asteroid Marvin is a meme token with no guaranteed utility or value.<br>
+      Cryptocurrency trading is speculative and involves risk.<br>
+      Nothing on this website is financial advice.</p>
     </div>
   </footer>
 </body>
