@@ -27,7 +27,7 @@
       padding-bottom: 100px;
     }
     header.hero {
-      padding: 80px 20px 60px;
+      padding: 100px 20px 80px;
       text-align: center;
       background: linear-gradient(135deg, #000000, #111);
     }
@@ -36,45 +36,46 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .hero-logo .logo {
-      height: 56px;
+      height: 72px;
+      border-radius: 8px;
     }
     .token-icon {
-      font-size: 32px;
+      font-size: 36px;
       color: var(--accent);
     }
     .hero h1 {
-      font-size: 3.2rem;
-      margin-bottom: 0.5em;
-      letter-spacing: -0.03em;
+      font-size: 3.6rem;
+      margin-bottom: 0.4em;
+      letter-spacing: -0.04em;
     }
     .hero .tagline {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--text-muted);
       margin-bottom: 0.4em;
       line-height: 1.4;
     }
     .hero .motto {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-style: italic;
-      opacity: 0.8;
-      margin-bottom: 24px;
+      opacity: 0.85;
+      margin-bottom: 28px;
     }
     .hero-buttons {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .hero-buttons a {
       text-decoration: none;
-      padding: 10px 24px;
+      padding: 12px 32px;
       border-radius: var(--radius);
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
     .btn-buy {
       background: var(--accent);
@@ -87,32 +88,32 @@
     }
     .contract {
       font-family: var(--mono);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      margin-top: 12px;
+      margin-top: 16px;
     }
 
     .container {
-      max-width: 840px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 20px;
     }
     section {
-      padding: 60px 0;
+      padding: 70px 0;
       border-bottom: 1px solid #222;
     }
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 24px;
+      font-size: 2rem;
+      margin-bottom: 28px;
       color: var(--accent);
     }
     h3 {
-      font-size: 1.3rem;
-      margin: 20px 0 12px;
+      font-size: 1.4rem;
+      margin: 24px 0 14px;
       color: var(--fg);
     }
     p {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       font-size: 1.05rem;
     }
     .small {
@@ -120,22 +121,22 @@
       color: var(--text-muted);
     }
     ul {
-      margin-bottom: 12px;
-      padding-left: 20px;
+      margin-bottom: 14px;
+      padding-left: 22px;
     }
     li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .phase {
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .whitepaper p {
       margin-bottom: 16px;
     }
     .whitepaper .coming-soon {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
       color: var(--accent);
     }
 
@@ -162,15 +163,15 @@
     }
 
     footer.footer {
-      margin-top: 60px;
-      padding-top: 20px;
+      margin-top: 80px;
+      padding-top: 28px;
       border-top: 1px solid #222;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.9rem;
     }
     footer .footer-links {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     footer .footer-links a {
       color: var(--accent);
@@ -184,17 +185,43 @@
       line-height: 1.5;
     }
 
+    .section-wide {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 0 auto;
+    }
+    .section-wide p {
+      margin-bottom: 18px;
+    }
+
+    .faq-list {
+      margin-top: 16px;
+    }
+    .faq-item {
+      margin-bottom: 24px;
+    }
+    .faq-question {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .faq-answer {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
     @media (max-width: 500px) {
       .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.6rem;
+      }
+      .hero .btn-buy,
+      .community-buttons a {
+        width: 100%;
+        max-width: 260px;
       }
       .hero-buttons {
         flex-direction: column;
         align-items: center;
-      }
-      .hero-buttons a {
-        width: 100%;
-        max-width: 240px;
       }
     }
   </style>
@@ -202,7 +229,7 @@
 <body>
   <header class="hero">
     <div class="hero-logo">
-      <img src="https://via.placeholder.com/200x100?text=ASTEROID+MARVIN" alt="Asteroid Marvin" class="logo" />
+      <img src="/attachments/wUq7E7wYEmnZjFtSjWouG.jpeg" alt="Asteroid Marvin Logo" class="logo" />
       <span class="token-icon">🪨</span>
     </div>
     <h1>ASTEROID MARVIN</h1>
@@ -212,146 +239,222 @@
     </p>
     <p class="motto">“No roadmap. No promises. Just a meme.”</p>
     <div class="hero-buttons">
-      <a href="https://four.meme" target="_blank" rel="noopener" class="btn-buy">Buy</a>
+      <a href="https://pancakeswap.finance/swap?chain=bsc&chainOut=bsc&inputCurrency=BNB&outputCurrency=0x758B2F798458612D91105e633Bd1bc4793De4444&exactAmount=&exactField=OUTPUT" target="_blank" rel="noopener" class="btn-buy">Buy</a>
       <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Telegram</a>
       <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">X</a>
     </div>
     <div class="contract">
-      Contract: <span>0x… (BSC)</span>
+      Contract: <span>0x758B2F798458612D91105e633Bd1bc4793De4444 (BSC)</span>
     </div>
   </header>
 
   <div class="container">
     <section class="project-narrative">
-      <h2>What is Asteroid Marvin?</h2>
-      <p>
-        Asteroid Marvin is a meme token launched on Four.meme.
-      </p>
-      <p>
-        There was no presale.<br>
-        There was no private round.
-      </p>
-      <p>
-        It exists because people found it, traded it, and stayed.
-      </p>
-      <p>
-        Nothing more.<br>
-        Nothing hidden.
-      </p>
-    </section>
-
-    <section class="token-overview">
-      <h2>Token Overview</h2>
-      <ul>
-        <li><strong>Network:</strong> Binance Smart Chain (BSC)</li>
-        <li><strong>Launch Platform:</strong> Four.meme</li>
-        <li><strong>Launch Type:</strong> Fair launch</li>
-        <li><strong>DEX:</strong> PancakeSwap</li>
-        <li><strong>Liquidity:</strong> Added at launch</li>
-        <li><strong>Trading:</strong> Open and unrestricted</li>
-      </ul>
-      <p class="small">
-        All information is verifiable on‑chain.
-      </p>
-    </section>
-
-    <section class="trading-liquidity">
-      <h2>Trading & Liquidity</h2>
-      <p>
-        Asteroid Marvin trades freely.
-      </p>
-      <p>
-        Buys and sells function normally.<br>
-        No sell restrictions.<br>
-        No transfer limitations.
-      </p>
-      <p>
-        Market movement is determined entirely by traders.
-      </p>
-    </section>
-
-    <section class="roadmap">
-      <h2>Roadmap</h2>
-
-      <div class="phase">
-        <h3>Phase 1 — Launch</h3>
-        <ul>
-          <li>Deployed on Four.meme</li>
-          <li>Liquidity added</li>
-          <li>Trading enabled</li>
-          <li>Community channels opened</li>
-        </ul>
-      </div>
-
-      <div class="phase">
-        <h3>Phase 2 — Visibility</h3>
-        <ul>
-          <li>Organic discovery</li>
-          <li>Community growth</li>
-          <li>Branding refinement</li>
-        </ul>
-      </div>
-
-      <div class="phase">
-        <h3>Phase 3 — Community Direction</h3>
-        <ul>
-          <li>Open discussion</li>
-          <li>Optional experiments</li>
-          <li>No forced outcomes</li>
-        </ul>
+      <div class="section-wide">
+        <h2>What is Asteroid Marvin?</h2>
         <p>
-          No deadlines.<br>
-          No guarantees.
+          Asteroid Marvin is a meme token launched on Four.meme.
+        </p>
+        <p>
+          There was no presale.<br>
+          There was no private round.
+        </p>
+        <p>
+          It exists because people found it, traded it, and stayed.
+        </p>
+        <p>
+          Nothing more.<br>
+          Nothing hidden.
         </p>
       </div>
     </section>
 
+    <section class="token-overview">
+      <div class="section-wide">
+        <h2>Token Overview</h2>
+        <ul>
+          <li><strong>Network:</strong> Binance Smart Chain (BSC)</li>
+          <li><strong>Launch Platform:</strong> Four.meme</li>
+          <li><strong>Launch Type:</strong> Fair launch</li>
+          <li><strong>DEX:</strong> PancakeSwap</li>
+          <li><strong>Liquidity:</strong> Added at launch</li>
+          <li><strong>Trading:</strong> Open and unrestricted</li>
+        </ul>
+        <p class="small">
+          All information is verifiable on‑chain.
+        </p>
+      </div>
+    </section>
+
+    <section class="price-stats">
+      <div class="section-wide">
+        <h2>Price & Stats</h2>
+        <p>
+          Asteroid Marvin lives entirely on-chain and on DEXes.
+        </p>
+        <p>
+          Its price is set by the free market on PancakeSwap, with no artificial price floor or ceiling.
+        </p>
+        <p>
+          You can check the latest price and chart on BSC‑focused explorers and DEX aggregators.
+        </p>
+      </div>
+    </section>
+
+    <section class="buy-guide">
+      <div class="section-wide">
+        <h2>How to Buy Asteroid Marvin</h2>
+        <p>
+          Asteroid Marvin is purchased on PancakeSwap using BNB.
+        </p>
+        <h3>Step 1: Connect Your Wallet</h3>
+        <p>
+          Connect your Web3 wallet (MetaMask, Trust Wallet, etc.) to PancakeSwap and make sure you’re on the <strong>Binance Smart Chain (BSC)</strong> network.
+        </p>
+        <h3>Step 2: Open the Swap</h3>
+        <p>
+          Click the <strong>“Buy”</strong> button above or paste this link:
+        </p>
+        <p class="contract">
+          https://pancakeswap.finance/swap?chain=bsc&amp;chainOut=bsc&amp;inputCurrency=BNB&amp;outputCurrency=0x758B2F798458612D91105e633Bd1bc4793De4444
+        </p>
+        <p>
+          Ensure the output token is set to <strong>Asteroid Marvin</strong> with contract:
+          <span class="mono">0x758B2F798458612D91105e633Bd1bc4793De4444</span>.
+        </p>
+        <h3>Step 3: Enter Amount & Swap</h3>
+        <p>
+          Input how much BNB you want to spend, then click <strong>Swap</strong>. Confirm the transaction in your wallet.
+        </p>
+        <p>
+          If you haven’t interacted with this token before, you may see an approval step; this is normal.
+        </p>
+      </div>
+    </section>
+
+    <section class="trading-liquidity">
+      <div class="section-wide">
+        <h2>Trading & Liquidity</h2>
+        <p>
+          Asteroid Marvin trades freely on PancakeSwap.
+        </p>
+        <p>
+          Buys and sells function normally.<br>
+          No sell restrictions.<br>
+          No transfer limitations.
+        </p>
+        <p>
+          Market movement is determined entirely by traders.
+        </p>
+      </div>
+    </section>
+
+    <section class="roadmap">
+      <div class="section-wide">
+        <h2>Roadmap</h2>
+        <p>
+          No fake milestones. No forced timelines. Just vibes and community direction.
+        </p>
+
+        <div class="phase">
+          <h3>Phase 1 — Launch</h3>
+          <ul>
+            <li>Deployed on Four.meme</li>
+            <li>Liquidity added</li>
+            <li>Trading enabled</li>
+            <li>Community channels opened</li>
+          </ul>
+        </div>
+
+        <div class="phase">
+          <h3>Phase 2 — Visibility</h3>
+          <ul>
+            <li>Organic discovery</li>
+            <li>Community growth</li>
+            <li>Branding refinement</li>
+          </ul>
+        </div>
+
+        <div class="phase">
+          <h3>Phase 3 — Community Direction</h3>
+          <ul>
+            <li>Open discussion</li>
+            <li>Optional experiments</li>
+            <li>No forced outcomes</li>
+          </ul>
+          <p>
+            No deadlines.<br>
+            No guarantees.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="whitepaper">
-      <h2>Whitepaper</h2>
-      <p class="coming-soon">Whitepaper — Coming Soon</p>
-      <p>
-        Documentation will outline:
-      </p>
-      <ul>
-        <li>Launch structure</li>
-        <li>Token behavior</li>
-        <li>Risk considerations</li>
-        <li>Community philosophy</li>
-      </ul>
+      <div class="section-wide">
+        <h2>Whitepaper</h2>
+        <p class="coming-soon">Whitepaper — Coming Soon</p>
+        <p>
+          Documentation will outline:
+        </p>
+        <ul>
+          <li>Launch structure</li>
+          <li>Token behavior</li>
+          <li>Risk considerations</li>
+          <li>Community philosophy</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="section-wide">
+        <h2>FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">Do you have a roadmap?</div>
+            <div class="faq-answer">
+              A small, honest one: launched, traded, community‑driven. No grand promises.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is there a presale?</div>
+            <div class="faq-answer">
+              No. Asteroid Marvin is a fair launch on Four.meme with no presale or private round.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is this a scam?</div>
+            <div class="faq-answer">
+              This is a meme token with no promises of utility or guaranteed value. Trading crypto is risky; never invest more than you’re prepared to lose.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How can I trust this token?</div>
+            <div class="faq-answer">
+              You can verify the contract, liquidity, and transactions on BSC block explorers and on‑chain tools. Trust what you can see, not what you read.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-highlights">
+      <div class="section-wide">
+        <h2>Community Highlights</h2>
+        <p>
+          The real value of Asteroid Marvin lives in its community.
+        </p>
+        <p>
+          People share memes, trade freely, and help each other understand the risks without pretending it’s a “safe” investment.
+        </p>
+        <p>
+          The channels are open. You can watch, trade, discuss, or just observe.
+        </p>
+      </div>
     </section>
 
     <section class="community">
-      <h2>Community</h2>
-      <p>
-        There is no team without the community.
-      </p>
-      <p>
-        Watch.<br>
-        Trade.<br>
-        Decide.
-      </p>
-      <div class="community-buttons">
-        <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Join Telegram</a>
-        <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">Follow on X</a>
-      </div>
-    </section>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener">Telegram</a> |
-      <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener">X</a>
-    </div>
-    <div class="footer-contract">
-      Contract: <span>0x… (BSC)</span>
-    </div>
-    <div class="disclaimer">
-      <p>
-        Asteroid Marvin is a meme token with no guaranteed utility or value.<br>
-        Cryptocurrency trading is speculative and involves risk.<br>
-        Nothing on this website is financial advice.
-      </p>
-    </div>
-  </footer>
-</body>
-</html>
+      <div class="section-wide">
+        <h2>Join the Community</h2>
+        <p>
+          There is no team without the commu
