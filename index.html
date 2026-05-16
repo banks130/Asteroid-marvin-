@@ -3,287 +3,355 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Asteroid Marvin | $MARVIN</title>
+  <title>Asteroid Marvin – Meme Token on BSC</title>
   <style>
     :root {
-      --bg: #040408;
-      --bg-card: #0a0c14;
-      --accent: #ff2a6d;
-      --accent-alt: #05d9e8;
-      --text: #f0f0f0;
-      --text-secondary: #b0b0d0;
-      --border: rgba(255, 255, 255, 0.1);
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      --bg: #000;
+      --fg: #fff;
+      --accent: #ff3366;
+      --card: #111;
+      --text-muted: #aaa;
+      --radius: 8px;
+      --mono: "JetBrains Mono", monospace, sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      background: radial-gradient(circle at top left, #0a2240, var(--bg) 70%);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      padding-bottom: 4rem;
+      padding-bottom: 100px;
     }
-
-    /* Stars background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-        radial-gradient(1px 1px at 60px 70px, #fff, transparent),
-        radial-gradient(1px 1px at 100px 140px, #fff, transparent);
-      background-size: 200px 200px;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: -1;
+    header.hero {
+      padding: 80px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #000000, #111);
+    }
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-logo .logo {
+      height: 56px;
+    }
+    .token-icon {
+      font-size: 32px;
+      color: var(--accent);
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.5em;
+      letter-spacing: -0.03em;
+    }
+    .hero .tagline {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4em;
+      line-height: 1.4;
+    }
+    .hero .motto {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-buy {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn-telegram, .btn-x {
+      background: #222;
+      color: var(--fg);
+      border: 1px solid #444;
+    }
+    .contract {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 12px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 840px;
       margin: 0 auto;
-      padding: 1.5rem 1rem;
+      padding: 0 20px;
+    }
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid #222;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+    h3 {
+      font-size: 1.3rem;
+      margin: 20px 0 12px;
+      color: var(--fg);
+    }
+    p {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+    .small {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    ul {
+      margin-bottom: 12px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .phase {
+      margin-bottom: 32px;
     }
 
-    /* --- Header --- */
-    header {
+    .whitepaper p {
+      margin-bottom: 16px;
+    }
+    .whitepaper .coming-soon {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .community-buttons {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 0;
-    }
-    header .logo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--accent-alt);
-    }
-    nav a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 1.4rem;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--accent-alt); }
-
-    /* --- Hero --- */
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-    }
-    .hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.8rem;
-      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 640px;
-      margin: 0 auto 1.8rem;
-      color: var(--text-secondary);
-    }
-    .hero-image {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 20px;
-      border: 2px solid var(--border);
-      box-shadow: var(--shadow);
-      margin: 0 auto 2rem;
-      display: block;
-    }
-
-    /* --- Buttons --- */
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: transform 0.2s, filter 0.2s;
-      border: 1px solid transparent;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
-      color: white;
-    }
-    .btn-outline {
-      color: var(--accent-alt);
-      border-color: var(--accent-alt);
-      background: transparent;
-    }
-
-    .btn-group {
-      display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
+      margin-top: 24px;
     }
-
-    /* --- Cards / Sections --- */
-    .section {
-      padding: 3rem 0;
-    }
-    .section-title {
-      font-size: 1.6rem;
-      text-align: center;
-      margin-bottom: 1.4rem;
-      color: var(--accent-alt);
-      font-weight: 600;
-    }
-    .card {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-      color: var(--accent-alt);
-    }
-
-    /* --- Social / Links --- */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .social-links a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text);
-      font-weight: 500;
+    .community-buttons a {
       text-decoration: none;
-      padding: 0.7rem 1.1rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.05);
-      font-size: 0.9rem;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
     }
-    .social-links a:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .community-buttons .btn-telegram {
+      background: #0088cc;
+      color: #fff;
+    }
+    .community-buttons .btn-x {
+      background: #1d9bf0;
+      color: #fff;
     }
 
-    /* --- Footer --- */
-    footer {
+    footer.footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #222;
       text-align: center;
-      padding: 2rem 0 1rem;
-      color: var(--text-secondary);
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
+    footer .footer-links {
+      margin-bottom: 12px;
+    }
+    footer .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+    footer .disclaimer p {
+      line-height: 1.5;
+    }
 
-    /* --- Responsive --- */
-    @media (min-width: 768px) {
-      .hero {
-        text-align: left;
-        padding-left: 0;
-        padding-right: 0;
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 2.4rem;
       }
-      .hero-content {
-        max-width: 550px;
-        margin: 0 auto 2rem;
-        text-align: left;
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
       }
-      .hero p,
-      .hero .btn-group {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-image {
-        max-width: 420px;
-        margin: 0 0 0 auto;
+      .hero-buttons a {
+        width: 100%;
+        max-width: 240px;
       }
     }
   </style>
 </head>
 <body>
+  <header class="hero">
+    <div class="hero-logo">
+      <img src="https://via.placeholder.com/200x100?text=ASTEROID+MARVIN" alt="Asteroid Marvin" class="logo" />
+      <span class="token-icon">🪨</span>
+    </div>
+    <h1>ASTEROID MARVIN</h1>
+    <p class="tagline">
+      Launched on Four.meme.<br>
+      Traded by the community.
+    </p>
+    <p class="motto">“No roadmap. No promises. Just a meme.”</p>
+    <div class="hero-buttons">
+      <a href="https://four.meme" target="_blank" rel="noopener" class="btn-buy">Buy</a>
+      <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Telegram</a>
+      <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">X</a>
+    </div>
+    <div class="contract">
+      Contract: <span>0x… (BSC)</span>
+    </div>
+  </header>
 
   <div class="container">
+    <section class="project-narrative">
+      <h2>What is Asteroid Marvin?</h2>
+      <p>
+        Asteroid Marvin is a meme token launched on Four.meme.
+      </p>
+      <p>
+        There was no presale.<br>
+        There was no private round.
+      </p>
+      <p>
+        It exists because people found it, traded it, and stayed.
+      </p>
+      <p>
+        Nothing more.<br>
+        Nothing hidden.
+      </p>
+    </section>
 
-    <header>
-      <div class="logo">Asteroid Marvin</div>
-      <nav>
-        <a href="#story">Story</a>
-        <a href="#buy">Buy</a>
-      </nav>
-    </header>
+    <section class="token-overview">
+      <h2>Token Overview</h2>
+      <ul>
+        <li><strong>Network:</strong> Binance Smart Chain (BSC)</li>
+        <li><strong>Launch Platform:</strong> Four.meme</li>
+        <li><strong>Launch Type:</strong> Fair launch</li>
+        <li><strong>DEX:</strong> PancakeSwap</li>
+        <li><strong>Liquidity:</strong> Added at launch</li>
+        <li><strong>Trading:</strong> Open and unrestricted</li>
+      </ul>
+      <p class="small">
+        All information is verifiable on‑chain.
+      </p>
+    </section>
 
-    <section class="hero">
-      <img
-        src="https://pbs.twimg.com/media/GjZKQZqXcA8QzQ2?format=jpg&name=large"
-        alt="Asteroid Marvin – Marvin the Martian in an asteroid suit"
-        class="hero-image"
-      />
-      <div class="hero-content">
-        <h1>Asteroid Marvin</h1>
+    <section class="trading-liquidity">
+      <h2>Trading & Liquidity</h2>
+      <p>
+        Asteroid Marvin trades freely.
+      </p>
+      <p>
+        Buys and sells function normally.<br>
+        No sell restrictions.<br>
+        No transfer limitations.
+      </p>
+      <p>
+        Market movement is determined entirely by traders.
+      </p>
+    </section>
+
+    <section class="roadmap">
+      <h2>Roadmap</h2>
+
+      <div class="phase">
+        <h3>Phase 1 — Launch</h3>
+        <ul>
+          <li>Deployed on Four.meme</li>
+          <li>Liquidity added</li>
+          <li>Trading enabled</li>
+          <li>Community channels opened</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h3>Phase 2 — Visibility</h3>
+        <ul>
+          <li>Organic discovery</li>
+          <li>Community growth</li>
+          <li>Branding refinement</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h3>Phase 3 — Community Direction</h3>
+        <ul>
+          <li>Open discussion</li>
+          <li>Optional experiments</li>
+          <li>No forced outcomes</li>
+        </ul>
         <p>
-          Spacesuit‑clad Marvin meets Elon‑scale meme energy. A galactic meme coin built for laughs, community, and one small step for memecoin holders.
+          No deadlines.<br>
+          No guarantees.
         </p>
-
-        <div class="btn-group">
-          <button id="copy-btn" class="btn btn-outline">
-            📋 0x758b...4444
-          </button>
-          <a href="https://four.meme/token/0x758b2f798458612d91105e633bd1bc4793de4444" class="btn btn-primary" target="_blank">
-            Buy on Four.meme
-          </a>
-        </div>
-
-        <div class="social-links">
-          <a href="https://x.com/AsteroidMarvin" target="_blank">𝕏 X (Twitter)</a>
-          <a href="https://t.me/asteroidmarvin" target="_blank">💬 Telegram</a>
-        </div>
       </div>
     </section>
 
-    <section id="story" class="section">
-      <h2 class="section-title">The Asteroid Marvin Story</h2>
-      <div class="card">
-        <h3>About the token</h3>
-        <p>
-          Asteroid Marvin is a meme‑centric token inspired by Marvin the Martian and the viral “Asteroid”‑themed space narrative that captured Elon Musk’s attention. [web:7][web:36] It’s a playful, speculative project built around community, memes, and interplanetary humor.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Vision & community</h3>
-        <p>
-          Every $MARVIN holder joins a decentralized crew exploring the meme‑verse: swapping jokes, sharing cosmic memes, and celebrating the absurdity of crypto culture. The project is designed to be fun‑first, share‑first, and ready‑made for virality across social platforms.
-        </p>
-      </div>
+    <section class="whitepaper">
+      <h2>Whitepaper</h2>
+      <p class="coming-soon">Whitepaper — Coming Soon</p>
+      <p>
+        Documentation will outline:
+      </p>
+      <ul>
+        <li>Launch structure</li>
+        <li>Token behavior</li>
+        <li>Risk considerations</li>
+        <li>Community philosophy</li>
+      </ul>
     </section>
 
+    <section class="community">
+      <h2>Community</h2>
+      <p>
+        There is no team without the community.
+      </p>
+      <p>
+        Watch.<br>
+        Trade.<br>
+        Decide.
+      </p>
+      <div class="community-buttons">
+        <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener" class="btn-telegram">Join Telegram</a>
+        <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener" class="btn-x">Follow on X</a>
+      </div>
+    </section>
   </div>
 
-  <footer>
-    © 2026 Asteroid Marvin | Not financial advice. Use at your own risk.
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://t.me/AsteroidMarvin" target="_blank" rel="noopener">Telegram</a> |
+      <a href="https://x.com/AsteroidMarvin" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-contract">
+      Contract: <span>0x… (BSC)</span>
+    </div>
+    <div class="disclaimer">
+      <p>
+        Asteroid Marvin is a meme token with no guaranteed utility or value.<br>
+        Cryptocurrency trading is speculative and involves risk.<br>
+        Nothing on this website is financial advice.
+      </p>
+    </div>
   </footer>
-
-  <script>
-    const address = "0x758b2f798458612d91105e633bd1bc4793de4444";
-    const copyBtn = document.getElementById("copy-btn");
-
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(address);
-        copyBtn.textContent = "✅ Copied address!";
-        setTimeout(() => {
-          copyBtn.textContent = "📋 0x758b...4444";
-        }, 2000);
-      } catch (err) {
-        alert("Failed to copy. Please copy manually: " + address);
-      }
-    });
-  </sc
+</body>
+</html>
